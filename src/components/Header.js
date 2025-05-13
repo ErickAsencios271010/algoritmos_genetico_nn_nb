@@ -1,19 +1,15 @@
-// src/components/Header.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import "./Header.css"; // crea este archivo si quieres estilos
 
-function Header() {
+export default function Header() {
   return (
-    <header>
+    <header className="header">
+      <Link to="/" className="logo">
+        SI Portfolio
+      </Link>
       <nav>
-        <ul>
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/execute">Ejecutar Algoritmo</Link></li>
-          <li><Link to="/project">Proyectos</Link></li>
-        </ul>
+        <Link to="/projects">Proyectos</Link>
       </nav>
     </header>
   );
 }
-
-export default Header;
