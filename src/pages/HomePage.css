@@ -1,0 +1,90 @@
+/* src/pages/HomePage.css */
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-message {
+  animation: fadeIn 2s ease-in-out;
+  margin-bottom: 30px;
+}
+
+.welcome-message h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.welcome-message p {
+  font-size: 1.2rem;
+  color: #666;
+  font-family: 'Roboto', sans-serif;
+}
+
+.image-container {
+  margin-top: 30px;
+  animation: slideIn 2s ease-in-out;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-image {
+  width: 100%;
+  max-width: 600px; /* Limita el tamaño máximo de la imagen */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.welcome-image:hover {
+  transform: scale(1.05); /* Agrega un efecto de hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Button styles for navigation (if you want to add a button) */
+.home-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.home-container button:hover {
+  background-color: #0056b3;
+  transition: background-color 0.3s;
+}
