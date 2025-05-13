@@ -1,25 +1,31 @@
 // src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import HomePage from './pages/HomePage';
-import ExecutePage from './pages/ExecutePage';
-import ProjectPage from './pages/ProjectPage';
-import './styles.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
+import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectPage from "./pages/ProjectPage";
+import GeneticDemoPage from "./pages/GeneticDemoPage";
+import NbDemoPage      from "./pages/NbDemoPage";
+import NnDemoPage      from "./pages/NnDemoPage";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/execute" element={<ExecutePage />} />
-        <Route path="/project" element={<ProjectPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:id" element={<ProjectPage />}>
+          <Route path="demo/genetic" element={<GeneticDemoPage />} />
+          <Route path="demo/nb"      element={<NbDemoPage />} />
+          <Route path="demo/nn"      element={<NnDemoPage />} />
+        </Route>
       </Routes>
-    </Router>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
 export default App;
-

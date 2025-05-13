@@ -1,0 +1,20 @@
+.code-viewer {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.code-viewer__status,
+.code-viewer__error {
+  color: #374151;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.code-viewer__error {
+  color: #dc2626;
+}

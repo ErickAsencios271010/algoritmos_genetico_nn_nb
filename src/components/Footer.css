@@ -1,0 +1,9 @@
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #f3f4f6; /* gris claro */
+  color: #6b7280; /* gris medio */
+  font-size: 0.875rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2rem;
+}
