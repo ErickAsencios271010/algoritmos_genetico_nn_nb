@@ -1,10 +1,9 @@
 // src/components/AlgorithmForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import apiService from '../services/apiService';
-import './AlgorithmForm.css'; // Agregamos el archivo de estilo para este componente
+import './AlgorithmForm.css'; // Mantener el archivo de estilo
 
-function AlgorithmForm() {
-  const [algorithmName, setAlgorithmName] = useState('');
+function AlgorithmForm({ algorithmName }) {
   const [params, setParams] = useState({
     POP_SIZE_DEFAULT: 100,
     GENERATIONS_DEFAULT: 500,
@@ -22,6 +21,17 @@ function AlgorithmForm() {
     NB_RECALL: 0,
     NB_F1_SCORE: 0
   });
+
+  useEffect(() => {
+    // Reset parameters if algorithm changes
+    setParams((prevParams) => ({
+      ...prevParams,
+      NB_DATA_PATH: '',
+      NB_PRECISION: 0,
+      NB_RECALL: 0,
+      NB_F1_SCORE: 0,
+    }));
+  }, [algorithmName]);
 
   const handleParamChange = (e) => {
     const { name, value } = e.target;
@@ -122,15 +132,6 @@ function AlgorithmForm() {
 
   return (
     <form onSubmit={handleSubmit} className="algorithm-form">
-      <h2>Ejecutar Algoritmo</h2>
-      <label>
-        Algoritmo:
-        <select value={algorithmName} onChange={(e) => setAlgorithmName(e.target.value)}>
-          <option value="genetic">Algoritmo Genético</option>
-          <option value="nb">Naive Bayes</option>
-          <option value="nn">Red Neuronal</option>
-        </select>
-      </label>
       {renderParams()}
       <button type="submit">Ejecutar</button>
     </form>
@@ -138,3 +139,4 @@ function AlgorithmForm() {
 }
 
 export default AlgorithmForm;
+
