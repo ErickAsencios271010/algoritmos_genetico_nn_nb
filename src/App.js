@@ -1,4 +1,3 @@
-// src/App.js
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,17 +12,23 @@ import NnDemoPage      from "./pages/NnDemoPage";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:id" element={<ProjectPage />}>
-          <Route path="demo/genetic" element={<GeneticDemoPage />} />
-          <Route path="demo/nb"      element={<NbDemoPage />} />
-          <Route path="demo/nn"      element={<NnDemoPage />} />
-        </Route>
-      </Routes>
-      <Footer />
+      <div className="app-container">
+        <Header />
+
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:id" element={<ProjectPage />}>
+              <Route path="demo/genetic" element={<GeneticDemoPage />} />
+              <Route path="demo/nb"      element={<NbDemoPage />} />
+              <Route path="demo/nn"      element={<NnDemoPage />} />
+            </Route>
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
