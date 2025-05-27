@@ -81,3 +81,25 @@
   flex-direction: column;
   align-items: center;
 }
+
+.route-chart {
+  margin: 1.5rem auto;
+  max-width: 650px;
+  text-align: center;
+}
+
+.genetic-results .routes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+#solution-select {
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #d1d5db;
+}
+
+
+

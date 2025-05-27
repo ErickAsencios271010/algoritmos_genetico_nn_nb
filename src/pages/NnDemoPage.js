@@ -107,6 +107,165 @@ export default function NnDemoPage() {
 
   const selectedStep = result?.final?.steps ? result.final.steps[selectedRow] : null;
 
+  // --- NUEVA FUNCION PARA GRAFICA DE NODOS ---
+const renderGraph = () => {
+    if (!selectedStep) return null;
+
+    const inputs = selectedStep.x;
+    const hiddenOutputs = selectedStep.out_h;
+    const finalOutput = selectedStep.out_o;
+
+    // Pesos actualizados
+    const w_ih = selectedStep.w_ih_updated; // matriz 2x2
+    const w_ho = selectedStep.w_ho_updated; // vector 2
+
+    const inputY = [60, 180];
+    const hiddenY = [90, 170];
+    const outputY = 130;
+
+    // Colores para diferenciar las entradas
+    const inputColors = ["#3b82f6", "#f97316"]; // azul y naranja
+
+    return (
+      <svg width="400" height="220" className="nn-graph">
+        {/* Nodos Entrada */}
+        {inputs.map((val, i) => (
+          <g key={`input-${i}`}>
+            <circle cx={50} cy={inputY[i]} r={20} fill={inputColors[i]} />
+            <text
+              x={50}
+              y={inputY[i]}
+              fill="white"
+              fontWeight="bold"
+              fontSize="14"
+              textAnchor="middle"
+              alignmentBaseline="middle"
+            >
+              {val.toFixed(2)}
+            </text>
+            <text
+              x={50}
+              y={inputY[i] + 35}
+              fill="#374151"
+              fontSize="12"
+              textAnchor="middle"
+            >
+              x{i}
+            </text>
+          </g>
+        ))}
+
+        {/* Nodos Ocultos */}
+        {hiddenOutputs.map((val, i) => (
+          <g key={`hidden-${i}`}>
+            <circle cx={230} cy={hiddenY[i]} r={28} fill="#10b981" />
+            <text
+              x={230}
+              y={hiddenY[i]}
+              fill="white"
+              fontWeight="bold"
+              fontSize="16"
+              textAnchor="middle"
+              alignmentBaseline="middle"
+            >
+              {val.toFixed(2)}
+            </text>
+            <text
+              x={230}
+              y={hiddenY[i] + 45}
+              fill="#374151"
+              fontSize="14"
+              textAnchor="middle"
+            >
+              h{i}
+            </text>
+          </g>
+        ))}
+
+        {/* Nodo Salida */}
+        <g>
+          <circle cx={350} cy={outputY} r={25} fill="#ef4444" />
+          <text
+            x={350}
+            y={outputY}
+            fill="white"
+            fontWeight="bold"
+            fontSize="16"
+            textAnchor="middle"
+            alignmentBaseline="middle"
+          >
+            {finalOutput.toFixed(2)}
+          </text>
+          <text
+            x={350}
+            y={outputY + 40}
+            fill="#374151"
+            fontSize="12"
+            textAnchor="middle"
+          >
+            Output
+          </text>
+        </g>
+
+        {/* Conexiones Entrada a Oculta */}
+        {inputs.map((_, i) =>
+          hiddenOutputs.map((_, j) => {
+            const weight = w_ih[i][j];
+            return (
+              <g key={`line-ih-${i}-${j}`}>
+                <line
+                  x1={70}
+                  y1={inputY[i]}
+                  x2={200}
+                  y2={hiddenY[j]}
+                  stroke={weight >= 0 ? inputColors[i] : "#dc2626"}
+                  strokeWidth={Math.min(Math.abs(weight) * 5, 5)}
+                />
+                <text
+                  x={135 + (j === 0 ? -10 : 10)}
+                  y={(inputY[i] + hiddenY[j]) / 2 - 5}
+                  fill={weight >= 0 ? inputColors[i] : "#dc2626"}
+                  fontSize="12"
+                  fontWeight="600"
+                  textAnchor="middle"
+                >
+                  {weight.toFixed(2)}
+                </text>
+              </g>
+            );
+          })
+        )}
+
+        {/* Conexiones Oculta a Salida */}
+        {hiddenOutputs.map((_, i) => {
+          const weight = w_ho[i];
+          return (
+            <g key={`line-ho-${i}`}>
+              <line
+                x1={258}
+                y1={hiddenY[i]}
+                x2={325}
+                y2={outputY}
+                stroke={weight >= 0 ? "#16a34a" : "#dc2626"}
+                strokeWidth={Math.min(Math.abs(weight) * 5, 5)}
+              />
+              <text
+                x={290}
+                y={hiddenY[i] - 10}
+                fill={weight >= 0 ? "#16a34a" : "#dc2626"}
+                fontSize="12"
+                fontWeight="600"
+                textAnchor="middle"
+              >
+                {weight.toFixed(2)}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    );
+  };
+
   return (
     <main className="nn-page">
       <h2 className="title">Demo: Red Neuronal Manual</h2>
@@ -167,7 +326,6 @@ export default function NnDemoPage() {
 
         <h3 className="section-title">Dataset</h3>
 
-        {/* Tabla estilo Excel */}
         <table className="dataset-table">
           <thead>
             <tr>
@@ -357,6 +515,11 @@ export default function NnDemoPage() {
                 {selectedStep.w_ho_updated.map((n) => n.toFixed(3)).join(", ")}]
               </em>
             </div>
+          </div>
+
+          {/* Aquí insertamos la gráfica SVG */}
+          <div className="nn-graph-container">
+            {renderGraph()}
           </div>
         </section>
       )}

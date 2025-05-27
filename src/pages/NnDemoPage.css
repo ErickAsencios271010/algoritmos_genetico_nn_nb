@@ -286,4 +286,18 @@ input[type="number"]:focus {
   margin: 6px 0;
 }
 
+.nn-graph-container {
+  margin-top: 30px;
+  text-align: center;
+}
 
+.nn-graph {
+  margin: 0 auto;
+  border: 1px solid #e5e
+
+}
+
+.nn-graph text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
