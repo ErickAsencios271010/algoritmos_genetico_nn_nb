@@ -1,0 +1,105 @@
+.genetic-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.genetic-form {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.param-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.param-row label {
+  flex: 1;
+  text-transform: capitalize;
+  color: #374151;
+}
+
+.param-row input {
+  width: 100px;
+  padding: 0.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.buttons button:hover {
+  background: #2563eb;
+}
+
+.status {
+  margin-top: 1rem;
+  color: #6b7280;
+}
+
+.error {
+  margin-top: 1rem;
+  color: #dc2626;
+}
+
+.genetic-results h3 {
+  margin-top: 1.5rem;
+  color: #111827;
+}
+
+.population {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+.evolution-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.route-chart {
+  margin: 1.5rem auto;
+  max-width: 650px;
+  text-align: center;
+}
+
+.genetic-results .routes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+#solution-select {
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #d1d5db;
+}
+
+
+

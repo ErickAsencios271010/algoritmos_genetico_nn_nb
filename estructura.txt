@@ -1,0 +1,8 @@
+Listado de rutas de carpetas
+El n즡ero de serie del volumen es 326D-3A0D
+C:.
+쳐컴public
+읕컴src
+    쳐컴components
+    쳐컴pages
+    읕컴services
