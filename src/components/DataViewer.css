@@ -1,0 +1,37 @@
+.data-viewer {
+  overflow-x: auto;
+}
+
+.data-viewer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-viewer th,
+.data-viewer td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.data-viewer th {
+  background: #f3f4f6;
+}
+
+.data-viewer__note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.data-viewer__status,
+.data-viewer__error {
+  color: #374151;
+  text-align: center;
+}
+
+.data-viewer__error {
+  color: #dc2626;
+}

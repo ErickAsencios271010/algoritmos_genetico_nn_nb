@@ -1,0 +1,84 @@
+/* Contenedor de la página, flujo vertical */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: #ffffff;
+}
+
+/* Sección de introducción */
+.intro {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.intro p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.intro .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+.intro .btn:hover {
+  background-color: #2563eb;
+}
+
+/* Bloque “Equipo” */
+.team-info {
+  width: 100%;
+  max-width: 600px;
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.team-info h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.team-info p {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.team-info ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.team-info li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.footer {
+  margin: 0;
+}
